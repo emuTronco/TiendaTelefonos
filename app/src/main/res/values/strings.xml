@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">TiendaTelefonos</string>
+    <string name="aceptar">Aceptar</string>
+    <string name="cancelar">Cancelar</string>
 </resources>
