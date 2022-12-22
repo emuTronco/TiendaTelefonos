@@ -15,10 +15,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //Abrimos la base de datos 'DBContactos' en modo escritura
-        UsuariosSQLiteHelper usdbh =
-                new UsuariosSQLiteHelper(this, "DBContactos", null,
-                        1);
+        UsuariosSQLiteHelper usdbh = new UsuariosSQLiteHelper(this, "DBContactos", null, 1);
         SQLiteDatabase db = usdbh.getWritableDatabase();
+        db.execSQL("DROP TABLE IF EXISTS Contactos");
+        usdbh.onCreate(db);
         //Si hemos abierto correctamente la base de datos
         if (db != null) {
             //Insertamos 5 usuarios de ejemplo

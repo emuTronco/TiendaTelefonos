@@ -3,6 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Universidad - Grado/IntelliJ/TiendaTelefonos/app/src/main/res/layout/activity_editar_bbdd.xml" value="0.358695652173913" />
+        <entry key="..\:/Universidad - Grado/IntelliJ/TiendaTelefonos/app/src/main/res/layout/activity_main.xml" value="0.358695652173913" />
+        <entry key="..\:/Universidad - Grado/IntelliJ/TiendaTelefonos/app/src/main/res/layout/activity_ver_bbdd.xml" value="0.358695652173913" />
+        <entry key="..\:/Universidad - Grado/IntelliJ/TiendaTelefonos/app/src/main/res/layout/item_table_layout.xml" value="0.358695652173913" />
         <entry key="..\:/Users/david/AndroidStudioProjects/TiendaTelefonos/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/david/AndroidStudioProjects/TiendaTelefonos/app/src/main/res/layout/prueba.xml" value="0.33" />
       </map>

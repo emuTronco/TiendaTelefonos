@@ -28,7 +28,7 @@ public class UsuariosSQLiteHelper extends SQLiteOpenHelper {
         // a la nueva, por lo que este método debería ser más elaborado.
 
         //Se elimina la versión anterior de la tabla
-        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS Usuarios");
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS Contactos");
 
         //Se crea la nueva versión de la tabla
         sqLiteDatabase.execSQL(sqlCreate);
