@@ -34,13 +34,15 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void onClickVer(View v) {
+    public void onClickInfo(View v) {
         Intent i = new Intent(this, VerBBDD.class);
+        i.putExtra("titulo", "Información productos");
         startActivity(i);
     }
 
-    public void onClickEditar(View v) {
+    public void onClickFacturas(View v) {
         Intent i = new Intent(this, EditarBBDD.class);
+        i.putExtra("titulo", "Facturas");
         startActivity(i);
     }
 

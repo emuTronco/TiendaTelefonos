@@ -10,49 +10,56 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Tienda de móviles Crazy Cell"
-        android:textSize="38dp"
-        android:textAlignment="center"
         android:layout_centerHorizontal="true"
+        android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp"
+        android:gravity="center_horizontal"
+        android:text="Tienda de móviles Crazy Cell"
+        android:textAlignment="center"
+        android:textSize="38dp"
         android:textStyle="bold"
-        android:typeface="monospace"
-        android:gravity="center_horizontal" />
+        android:typeface="monospace" />
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:layout_centerInParent="true"
         android:layout_gravity="center"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:gravity="center">
+        android:gravity="center"
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/botonVer"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:text="Ver BB.DD."
-        android:onClick="onClickVer"/>
+        <Button
+            android:id="@+id/botonVer"
+            android:layout_width="220dp"
+            android:layout_height="80dp"
+            android:onClick="onClickInfo"
+            android:text="Información productos (Ver?)"
+            app:backgroundTint="@color/teal_700" />
 
-    <Button
-        android:id="@+id/botonEditar"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:text="Editar BB.DD."
-        android:onClick="onClickEditar"/>
+        <Button
+            android:id="@+id/botonEditar"
+            android:layout_width="220dp"
+            android:layout_height="80dp"
+            android:onClick="onClickFacturas"
+            android:text="Facturas (editar?)"
+            app:backgroundTint="@color/teal_700" />
 
-    <Button
-        android:id="@+id/botonBorrar"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:text="Borrar BB.DD."/>
+        <Button
+            android:id="@+id/botonBorrar"
+            android:layout_width="220dp"
+            android:layout_height="80dp"
+            android:text="Consultar empleados"
+            app:backgroundTint="@color/teal_700" />
+
+        <Button
+            android:id="@+id/botondfg"
+            android:layout_width="220dp"
+            android:layout_height="80dp"
+            android:text="Consultar productos"
+            app:backgroundTint="@color/teal_700" />
 
     </LinearLayout>
-
-
 
 
 </RelativeLayout>
