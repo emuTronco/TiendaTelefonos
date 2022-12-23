@@ -15,10 +15,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //Abrimos la base de datos 'DBContactos' en modo escritura
+        reiniciarBBDD();
         UsuariosSQLiteHelper usdbh = new UsuariosSQLiteHelper(this, "DBContactos", null, 1);
         SQLiteDatabase db = usdbh.getWritableDatabase();
-        db.execSQL("DROP TABLE IF EXISTS Contactos");
-        usdbh.onCreate(db);
         //Si hemos abierto correctamente la base de datos
         if (db != null) {
             //Insertamos 5 usuarios de ejemplo
@@ -28,11 +27,13 @@ public class MainActivity extends AppCompatActivity {
                 String nombre = "Usuario" + i;
                 //Insertamos los datos en la tabla Usuarios
                 db.execSQL("INSERT INTO Contactos (nombre, telefono) VALUES ('" + nombre + "', " + telefono + " )");
+                db.execSQL("INSERT INTO Empleado (nombre, direccion) VALUES ('Pepe', 'asdf')");
             }
             //Cerramos la base de datos
             db.close();
         }
     }
+
 
     public void onClickInfo(View v) {
         Intent i = new Intent(this, VerBBDD.class);
@@ -46,10 +47,8 @@ public class MainActivity extends AppCompatActivity {
         startActivity(i);
     }
 
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        // Inflate the menu; this adds items to the action bar if it is present.
-//        getMenuInflater().inflate(R.menu.main_crear_bd, menu);
-//        return true;
-//    }
+    private void reiniciarBBDD() {
+        this.deleteDatabase("DBContactos");
+    }
+
 }
