@@ -57,7 +57,8 @@
         android:layout_height="25dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:text="texto"
+        android:gravity="center"
+        android:textSize="12dp"
         app:layout_constraintBottom_toBottomOf="@+id/editText"
         app:layout_constraintEnd_toStartOf="@+id/editText"
         app:layout_constraintTop_toTopOf="@+id/editText" />
@@ -68,7 +69,8 @@
         android:layout_height="25dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:text="texto"
+        android:gravity="center"
+        android:textSize="12dp"
         app:layout_constraintBottom_toBottomOf="@+id/editText5"
         app:layout_constraintEnd_toStartOf="@+id/editText"
         app:layout_constraintTop_toTopOf="@+id/editText5" />
@@ -79,7 +81,8 @@
         android:layout_height="25dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:text="texto"
+        android:gravity="center"
+        android:textSize="12dp"
         app:layout_constraintBottom_toBottomOf="@+id/editText4"
         app:layout_constraintEnd_toStartOf="@+id/editText"
         app:layout_constraintTop_toTopOf="@+id/editText4" />
@@ -92,7 +95,8 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="56dp"
-        android:text="texto"
+        android:gravity="center"
+        android:textSize="12dp"
         app:layout_constraintBottom_toBottomOf="@+id/tvEditar4"
         app:layout_constraintEnd_toStartOf="@+id/editText"
         app:layout_constraintTop_toTopOf="@+id/tvEditar2" />
@@ -113,30 +117,35 @@
             android:id="@+id/rbCliente"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cliente" />
+            android:text="Cliente"
+            android:onClick="onClickEditarRegistros"/>
 
         <RadioButton
             android:id="@+id/rbEmpleado"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Empleado" />
+            android:text="Empleado"
+            android:onClick="onClickEditarRegistros"/>
 
         <RadioButton
             android:id="@+id/rbProducto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Producto" />
+            android:text="Producto"
+            android:onClick="onClickEditarRegistros"/>
 
         <RadioButton
             android:id="@+id/rbTelefono"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Telefono" />
+            android:text="Telefono"
+            android:onClick="onClickEditarRegistros"/>
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="nose :D" />
+            android:text="nose :D"
+            android:onClick="onClickEditarRegistros"/>
 
 
     </RadioGroup>
@@ -149,7 +158,8 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="67dp"
-        android:text="texto"
+        android:gravity="center"
+        android:textSize="12dp"
         app:layout_constraintBottom_toBottomOf="@+id/editText3"
         app:layout_constraintEnd_toStartOf="@+id/editText"
         app:layout_constraintTop_toTopOf="@+id/editText" />
