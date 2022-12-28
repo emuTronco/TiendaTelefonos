@@ -117,35 +117,35 @@
             android:id="@+id/rbCliente"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cliente"
-            android:onClick="onClickEditarRegistros"/>
+            android:onClick="onClickEditarRegistros"
+            android:text="Cliente" />
 
         <RadioButton
             android:id="@+id/rbEmpleado"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Empleado"
-            android:onClick="onClickEditarRegistros"/>
+            android:onClick="onClickEditarRegistros"
+            android:text="Empleado" />
 
         <RadioButton
             android:id="@+id/rbProducto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Producto"
-            android:onClick="onClickEditarRegistros"/>
+            android:onClick="onClickEditarRegistros"
+            android:text="Producto" />
 
         <RadioButton
             android:id="@+id/rbTelefono"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Telefono"
-            android:onClick="onClickEditarRegistros"/>
+            android:onClick="onClickEditarRegistros"
+            android:text="Telefono" />
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="nose :D"
-            android:onClick="onClickEditarRegistros"/>
+            android:onClick="onClickEditarRegistros"
+            android:text="nose :D" />
 
 
     </RadioGroup>
@@ -215,6 +215,7 @@
             android:id="@+id/rbInsertar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="onClickModificar"
             android:text="Insertar"
             tools:layout_editor_absoluteX="273dp"
             tools:layout_editor_absoluteY="534dp" />
@@ -223,6 +224,7 @@
             android:id="@+id/rbModificar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="onClickModificar"
             android:text="Modificar"
             tools:layout_editor_absoluteX="273dp"
             tools:layout_editor_absoluteY="486dp" />
@@ -231,8 +233,20 @@
             android:id="@+id/rbBorrar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="onClickModificar"
             android:text="Borrar" />
 
     </RadioGroup>
+
+    <TextView
+        android:id="@+id/tvModificar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="11dp"
+        android:text="Registro a modificar"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText5" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

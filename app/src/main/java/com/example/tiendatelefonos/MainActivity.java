@@ -17,27 +17,29 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         if (!reiniciado) {  //se reinicia la bbdd la primera vez que se inicie la aplicacion
             reiniciarBBDD();
             reiniciado = true;
-        }
-        //Abrimos la base de datos 'DBContactos' en modo escritura
-        UsuariosSQLiteHelper usdbh = new UsuariosSQLiteHelper(this, "DBContactos", null, 1);
-        SQLiteDatabase db = usdbh.getWritableDatabase();
-        //Si hemos abierto correctamente la base de datos
-        if (db != null) {
-            //Insertamos 5 usuarios de ejemplo
-            for (int i = 1; i <= 5; i++) {
-                //Generamos los datos
-                int telefono = 11111111 + i;
-                String nombre = "Usuario" + i;
-                //Insertamos los datos en la tabla Usuarios
-                db.execSQL("INSERT INTO Contactos (nombre, telefono) VALUES ('" + nombre + "', " + telefono + " )");
-                db.execSQL("INSERT INTO Empleado (nombre, direccion) VALUES ('Pepe', 'asdf')");
+            //Abrimos la base de datos 'DBContactos' en modo escritura
+            UsuariosSQLiteHelper usdbh = new UsuariosSQLiteHelper(this, "DBContactos", null, 1);
+            SQLiteDatabase db = usdbh.getWritableDatabase();
+            //Si hemos abierto correctamente la base de datos
+            if (db != null) {
+                //Insertamos 5 usuarios de ejemplo
+                for (int i = 1; i <= 5; i++) {
+                    //Generamos los datos
+                    int telefono = 11111111 + i;
+                    String nombre = "Usuario" + i;
+                    //Insertamos los datos en la tabla Usuarios
+                    db.execSQL("INSERT INTO Contactos (nombre, telefono) VALUES ('" + nombre + "', " + telefono + " )");
+                    db.execSQL("INSERT INTO Empleado (nombre, direccion) VALUES ('Pepe', 'asdf')");
+                }
+                db.execSQL("INSERT INTO Empleado (nombre, direccion) VALUES ('Pepito', 'hfthfth')");
+                //Cerramos la base de datos
+            db.close();
             }
-            db.execSQL("INSERT INTO Empleado (nombre, direccion) VALUES ('Pepito', 'hfthfth')");
-            //Cerramos la base de datos
-//            db.close();
+
         }
     }
 
