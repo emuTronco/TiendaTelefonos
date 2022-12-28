@@ -1,5 +1,6 @@
 package com.example.tiendatelefonos;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Typeface;
@@ -91,6 +92,11 @@ public class VerBBDD extends AppCompatActivity {
         tv3 = registro.findViewById(R.id.tv3);
         tv4 = registro.findViewById(R.id.tv4);
         tv5 = registro.findViewById(R.id.tv5);
+    }
+
+    public void onClickAtras(View v) {
+        Intent i = new Intent(this, MainActivity.class);
+        startActivity(i);
     }
 
 }

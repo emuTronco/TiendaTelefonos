@@ -1,5 +1,6 @@
 package com.example.tiendatelefonos;
 
+import android.content.ContentValues;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -32,10 +33,10 @@ public class EditarBBDD extends AppCompatActivity {
 
         switch (tabla) {
             case "rbCliente":
-                cambiarTitulos("RFC", "Nombre", "Dirección", "Teléfono", "e-mail");
+                cambiarTitulos("RFC", "Nombre", "Dirección", "Telefono", "email");
                 break;
             case "rbEmpleado":
-                cambiarTitulos("Nombre", "Direccion", "id_empleado", "e-mail", "Teléfono");
+                cambiarTitulos("Nombre", "Direccion", "id_empleado", "email", "Telefono");
                 break;
             case "rbProducto":
                 cambiarTitulos("Código", "Tipo", "Precio", "PH", "PH");
@@ -81,10 +82,17 @@ public class EditarBBDD extends AppCompatActivity {
         String mensaje_toast = "";
         UsuariosSQLiteHelper conn = new UsuariosSQLiteHelper(this, "DBContactos", null, 1);
         SQLiteDatabase bbdd = conn.getWritableDatabase();
+        ContentValues nuevoRegistro = new ContentValues();
+        nuevoRegistro.put(tv1.getText().toString(), datos1);
+        nuevoRegistro.put(tv2.getText().toString(), datos2);
+        nuevoRegistro.put(tv3.getText().toString(), datos3);
+        nuevoRegistro.put(tv4.getText().toString(), datos4);
+        nuevoRegistro.put(tv5.getText().toString(), datos5);
         String consulta_insertar = "INSERT into " + string_tabla + " values ('" + datos1 + "', '" + datos2 + "', '" + datos3 + "', '" + datos4 + "', '" + datos5 + "');";
         String consulta_borrar = "DELETE from " + string_tabla + "where " + tv1.getText() + " = '" + datos1 + "' or " + tv2.getText() + " = '" + datos2 + "' or " + tv3.getText() + " = '" + datos3 + "' or " + tv4.getText() + " = '" + datos4 + "' or " + tv5.getText() + " = '" + datos5 + "';";
         switch (id_consulta) {
             case 0:
+//                bbdd.insert(string_tabla, null, nuevoRegistro);
                 bbdd.execSQL(consulta_insertar);
                 mensaje_toast = "Registro insertado con éxito";
                 break;
@@ -95,8 +103,7 @@ public class EditarBBDD extends AppCompatActivity {
         }
 
         Intent i = new Intent(this, MainActivity.class);
-        Toast toast = Toast.makeText(this, mensaje_toast, Toast.LENGTH_SHORT);
-        toast.show();
+        Toast.makeText(this, mensaje_toast, Toast.LENGTH_SHORT).show();
         startActivity(i);
     }
 

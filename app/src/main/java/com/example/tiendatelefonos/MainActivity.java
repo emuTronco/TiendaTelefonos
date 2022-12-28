@@ -4,20 +4,24 @@ import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
     public static int versionTabla = 1;
+    private static boolean reiniciado = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        if (!reiniciado) {  //se reinicia la bbdd la primera vez que se inicie la aplicacion
+            reiniciarBBDD();
+            reiniciado = true;
+        }
         //Abrimos la base de datos 'DBContactos' en modo escritura
-        reiniciarBBDD();
         UsuariosSQLiteHelper usdbh = new UsuariosSQLiteHelper(this, "DBContactos", null, 1);
         SQLiteDatabase db = usdbh.getWritableDatabase();
         //Si hemos abierto correctamente la base de datos
@@ -33,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
             }
             db.execSQL("INSERT INTO Empleado (nombre, direccion) VALUES ('Pepito', 'hfthfth')");
             //Cerramos la base de datos
-            db.close();
+//            db.close();
         }
     }
 
@@ -42,6 +46,8 @@ public class MainActivity extends AppCompatActivity {
         Intent i = new Intent(this, VerBBDD.class);
         i.putExtra("titulo", "Información productos");
         startActivity(i);
+        finish();
+        overridePendingTransition(0, 0);
     }
 
     public void onClickFacturas(View v) {
