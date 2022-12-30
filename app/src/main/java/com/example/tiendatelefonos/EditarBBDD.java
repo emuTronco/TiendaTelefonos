@@ -2,6 +2,7 @@ package com.example.tiendatelefonos;
 
 import android.content.ContentValues;
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
@@ -16,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class EditarBBDD extends AppCompatActivity {
 
     static TextView tv1, tv2, tv3, tv4, tv5;
+    String[] array_modificar = new String[5];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,8 +94,6 @@ public class EditarBBDD extends AppCompatActivity {
         }
 
         String mensaje_toast = "";
-        String[] array_modificar = new String[5];
-        boolean modificar_cargado = false;
         UsuariosSQLiteHelper conn = new UsuariosSQLiteHelper(this, "DBContactos", null, 1);
         SQLiteDatabase bbdd = conn.getWritableDatabase();
         ContentValues nuevoRegistro = new ContentValues();
@@ -102,9 +102,14 @@ public class EditarBBDD extends AppCompatActivity {
         nuevoRegistro.put(tv3.getText().toString(), datos3);
         nuevoRegistro.put(tv4.getText().toString(), datos4);
         nuevoRegistro.put(tv5.getText().toString(), datos5);
-        String consulta_insertar = "INSERT into " + string_tabla + " values ('" + datos1 + "', '" + datos2 + "', '" + datos3 + "', '" + datos4 + "', '" + datos5 + "');";
-        String consulta_borrar = "DELETE from " + string_tabla + " where " + tv1.getText() + " = '" + datos1 + "' or " + tv2.getText() + " = '" + datos2 + "' or " + tv3.getText() + " = '" + datos3 + "' or " + tv4.getText() + " = '" + datos4 + "' or " + tv5.getText() + " = '" + datos5 + "';";
-        String consulta_borrar2 = "DELETE from " + string_tabla + " where " + tv1.getText().toString() + " = '" + datos1 + "';";
+        boolean modificar_cargado = false;
+
+        for (String registro : array_modificar) {
+            if (registro != null) {
+                modificar_cargado = true;
+            }
+        }
+        
         switch (id_consulta) {
             case 0:
                 bbdd.insert(string_tabla, null, nuevoRegistro);
@@ -120,8 +125,11 @@ public class EditarBBDD extends AppCompatActivity {
                 break;
             case 1:
                 if (!modificar_cargado) {
-                    guardarModificado(array_modificar, datos1, datos2, datos3, datos4, datos5);
+                    array_modificar = guardarModificado(array_modificar, nuevoRegistro, string_tabla, bbdd);
                 } else {
+                    bbdd.update(string_tabla, nuevoRegistro,tv1.getText().toString() + "= '" + array_modificar[0] + "' or " + tv2.getText().toString() + "= '" + array_modificar[1] + "' or " + tv3.getText().toString() + "= '" + array_modificar[2] + "' or " + tv4.getText().toString() + "= '" + array_modificar[3] + "' or " + tv5.getText().toString() + "= '" + array_modificar[4] + "'", null);
+                    modificar_cargado = false;
+                    mensaje_toast = "Registro modificado con éxito";
                     terminarEdicion(mensaje_toast);
                 }
         }
@@ -133,25 +141,42 @@ public class EditarBBDD extends AppCompatActivity {
         startActivity(i);
     }
 
-    private void guardarModificado(String[] array_modificar, String datos1, String datos2, String datos3, String datos4, String datos5) {
-        array_modificar[0] = datos1;
-        array_modificar[1] = datos2;
-        array_modificar[2] = datos3;
-        array_modificar[3] = datos4;
-        array_modificar[4] = datos5;
-        TextView tvModificar = findViewById(R.id.tvModificar);
-        tvModificar.setText("Nuevo registro");
-        EditText et1 = findViewById(R.id.editText);
-        EditText et2 = findViewById(R.id.editText2);
-        EditText et3 = findViewById(R.id.editText3);
-        EditText et4 = findViewById(R.id.editText4);
-        EditText et5 = findViewById(R.id.editText5);
-        et1.setText("");
-        et2.setText("");
-        et3.setText("");
-        et4.setText("");
-        et5.setText("");
-        Toast.makeText(this, "Introduce los nuevos datos del registro que quieres modificar", Toast.LENGTH_SHORT).show();
+    private String[] guardarModificado(String[] array_modificar, ContentValues nuevoRegistro, String string_tabla, SQLiteDatabase bbdd) {
+        boolean registroEncontrado = true;
+        for (String key : nuevoRegistro.keySet()) {
+            String comprobarRegistro = nuevoRegistro.getAsString(key);
+            if (!comprobarRegistro.equals("")) {
+                Cursor c = bbdd.rawQuery("SELECT * from " + string_tabla + " where " + key + " = '" + comprobarRegistro + "';", null);
+                if (!c.moveToFirst()) {
+                    Toast.makeText(this, "El registro a modificar no se encuentra en la base de datos", Toast.LENGTH_SHORT).show();
+                    registroEncontrado = false;
+                    break;
+                }
+            }
+        }
+
+        if (registroEncontrado) {
+            array_modificar[0] = nuevoRegistro.getAsString(tv1.getText().toString());
+            array_modificar[1] = nuevoRegistro.getAsString(tv2.getText().toString());
+            array_modificar[2] = nuevoRegistro.getAsString(tv3.getText().toString());
+            array_modificar[3] = nuevoRegistro.getAsString(tv4.getText().toString());
+            array_modificar[4] = nuevoRegistro.getAsString(tv5.getText().toString());
+            TextView tvModificar = findViewById(R.id.tvModificar);
+            tvModificar.setText("Nuevo registro");
+            EditText et1 = findViewById(R.id.editText);
+            EditText et2 = findViewById(R.id.editText2);
+            EditText et3 = findViewById(R.id.editText3);
+            EditText et4 = findViewById(R.id.editText4);
+            EditText et5 = findViewById(R.id.editText5);
+            et1.setText("");
+            et2.setText("");
+            et3.setText("");
+            et4.setText("");
+            et5.setText("");
+            Toast.makeText(this, "Introduce los nuevos datos del registro que quieres modificar", Toast.LENGTH_SHORT).show();
+        }
+
+        return array_modificar;
     }
 
     private void cambiarTitulos(String titulo1, String titulo2, String titulo3, String titulo4, String titulo5) {
