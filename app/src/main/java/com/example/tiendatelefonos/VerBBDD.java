@@ -16,8 +16,11 @@ public class VerBBDD extends AppCompatActivity {
 
     private TableLayout tlBBDD;
     static TextView tv1, tv2, tv3, tv4, tv5, tvTitulo;
-    private String query1 = "select nombre, telefono from contactos";
-    private String query2 = "select nombre, direccion from empleado";
+    private String queryCliente = "select * from cliente";
+    private String queryEmpleado = "select * from empleado";
+    private String queryProducto = "select * from producto";
+    private String queryServicio = "select * from servicio";
+    private String queryFactura = "select * from factura";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,12 +41,24 @@ public class VerBBDD extends AppCompatActivity {
         UsuariosSQLiteHelper conn = new UsuariosSQLiteHelper(this, "DBContactos", null, 1);
         SQLiteDatabase bbdd = conn.getWritableDatabase();
 
-        escribirIndices(registro, "Registro 1", "Registro 2", "Registro 3", "Registro 4", "Registro 5");
-        dibujarTabla(bbdd, query1);
+        escribirIndices(registro, "Código", "Nombre", "Dirección", "e-mail", "Teléfono", "Cliente");
+        dibujarTabla(bbdd, queryCliente);
 
         registro = LayoutInflater.from(this).inflate(R.layout.item_table_layout, null, false);
-        escribirIndices(registro, "Registro 1", "Registro 2", "Registro 3", "Registro 4", "Registro 5");
-        dibujarTabla(bbdd, query2);
+        escribirIndices(registro, "Código", "Nombre", "Dirección", "Salario", "Teléfono", "Empleado");
+        dibujarTabla(bbdd, queryEmpleado);
+
+        registro = LayoutInflater.from(this).inflate(R.layout.item_table_layout, null, false);
+        escribirIndices(registro, "Código", "Tipo prod.", "Precio", "Stock", "Ud. encarg.", "Producto");
+        dibujarTabla(bbdd, queryProducto);
+
+        registro = LayoutInflater.from(this).inflate(R.layout.item_table_layout, null, false);
+        escribirIndices(registro, "Código", "Nombre", "Precio", "T. rest.", "Cliente", "Servicio");
+        dibujarTabla(bbdd, queryServicio);
+
+        registro = LayoutInflater.from(this).inflate(R.layout.item_table_layout, null, false);
+        escribirIndices(registro, "Código", "Cliente", "Empleado", "Precio", "Fecha", "Factura");
+        dibujarTabla(bbdd, queryFactura);
 
     }
 
@@ -57,10 +72,11 @@ public class VerBBDD extends AppCompatActivity {
             tv2.setText(fila.getString(1));
             tlBBDD.addView(registro);
         } while (fila.moveToNext());
-        espacioTabla();
+        espacioTabla("");
     }
 
-    private void escribirIndices(View registro, String i1, String i2, String i3, String i4, String i5) {
+    private void escribirIndices(View registro, String i1, String i2, String i3, String i4, String i5, String titulo) {
+        espacioTabla(titulo);
         encontrarColumnas(registro);
         tv1.setText(i1);
         tv1.setTypeface(null, Typeface.BOLD);
@@ -75,12 +91,14 @@ public class VerBBDD extends AppCompatActivity {
         tlBBDD.addView(registro);
     }
 
-    private void espacioTabla() {
+    private void espacioTabla(String titulo) {
         View registro = LayoutInflater.from(this).inflate(R.layout.item_table_layout, null, false);
         encontrarColumnas(registro);
         tv1.setBackground(null);
         tv2.setBackground(null);
         tv3.setBackground(null);
+        tv3.setText(titulo);
+        tv3.setTypeface(null, Typeface.BOLD);
         tv4.setBackground(null);
         tv5.setBackground(null);
         tlBBDD.addView(registro);

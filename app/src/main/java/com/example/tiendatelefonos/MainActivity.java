@@ -32,10 +32,14 @@ public class MainActivity extends AppCompatActivity {
                     int telefono = 11111111 + i;
                     String nombre = "Usuario" + i;
                     //Insertamos los datos en la tabla Usuarios
-                    db.execSQL("INSERT INTO Contactos (nombre, telefono) VALUES ('" + nombre + "', " + telefono + " )");
-                    db.execSQL("INSERT INTO Empleado (nombre, direccion) VALUES ('Pepe', 'asdf')");
+//                    db.execSQL("INSERT INTO Contactos (nombre, telefono) VALUES ('" + nombre + "', " + telefono + " )");
+                    db.execSQL("INSERT INTO Cliente VALUES ('Pepe', 'asdf', 'dfdsf', 'dfgdfg', 345)");
+                    db.execSQL("INSERT INTO Empleado VALUES ('Pepe', 'asdf', 'dfdsf', '789', 345)");
+                    db.execSQL("INSERT INTO Producto VALUES ('Pepe', 'asdf', 'dfdsf', 'dfgdfg', '345')");
+                    db.execSQL("INSERT INTO Servicio VALUES ('Pepe', 'asdf', '645', '456', '345')");
+                    db.execSQL("INSERT INTO Factura VALUES ('Pepe', 'asdf', 'dfdsf', '978', '345')");
                 }
-                db.execSQL("INSERT INTO Empleado (nombre, direccion) VALUES ('Pepito', 'hfthfth')");
+                db.execSQL("INSERT INTO Empleado VALUES ('Pepito', 'hfthfth', 'dfdsf', '789', 345)");
                 //Cerramos la base de datos
             db.close();
             }

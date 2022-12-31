@@ -118,7 +118,7 @@ public class EditarBBDD extends AppCompatActivity {
                 terminarEdicion(mensaje_toast);
                 break;
             case 2:
-                bbdd.delete(string_tabla, tv1.getText().toString() + "= '" + datos1 + "' or " + tv2.getText().toString() + "= '" + datos2 + "' or " + tv3.getText().toString() + "= '" + datos3 + "' or " + tv4.getText().toString() + "= '" + datos4 + "' or " + tv5.getText().toString() + "= '" + datos5 + "'", null);
+                bbdd.delete(string_tabla, tv1.getText().toString() + "= " + datos1 + " or " + tv2.getText().toString() + "= " + datos2 + " or " + tv3.getText().toString() + "= " + datos3 + " or " + tv4.getText().toString() + "= " + datos4 + " or " + tv5.getText().toString() + "= " + datos5 + "", null);
 //                bbdd.execSQL(consulta_borrar2);
                 mensaje_toast = "Registro eliminado con éxito";
                 terminarEdicion(mensaje_toast);
@@ -127,7 +127,7 @@ public class EditarBBDD extends AppCompatActivity {
                 if (!modificar_cargado) {
                     array_modificar = guardarModificado(array_modificar, nuevoRegistro, string_tabla, bbdd);
                 } else {
-                    bbdd.update(string_tabla, nuevoRegistro,tv1.getText().toString() + "= '" + array_modificar[0] + "' or " + tv2.getText().toString() + "= '" + array_modificar[1] + "' or " + tv3.getText().toString() + "= '" + array_modificar[2] + "' or " + tv4.getText().toString() + "= '" + array_modificar[3] + "' or " + tv5.getText().toString() + "= '" + array_modificar[4] + "'", null);
+                    bbdd.update(string_tabla, nuevoRegistro,tv1.getText().toString() + "= " + array_modificar[0] + " or " + tv2.getText().toString() + "= " + array_modificar[1] + " or " + tv3.getText().toString() + "= " + array_modificar[2] + " or " + tv4.getText().toString() + "= " + array_modificar[3] + " or " + tv5.getText().toString() + "= " + array_modificar[4] + "", null);
                     modificar_cargado = false;
                     mensaje_toast = "Registro modificado con éxito";
                     terminarEdicion(mensaje_toast);
@@ -146,7 +146,7 @@ public class EditarBBDD extends AppCompatActivity {
         for (String key : nuevoRegistro.keySet()) {
             String comprobarRegistro = nuevoRegistro.getAsString(key);
             if (!comprobarRegistro.equals("")) {
-                Cursor c = bbdd.rawQuery("SELECT * from " + string_tabla + " where " + key + " = '" + comprobarRegistro + "';", null);
+                Cursor c = bbdd.rawQuery("SELECT * from " + string_tabla + " where " + key + " = " + comprobarRegistro + ";", null);
                 if (!c.moveToFirst()) {
                     Toast.makeText(this, "El registro a modificar no se encuentra en la base de datos", Toast.LENGTH_SHORT).show();
                     registroEncontrado = false;

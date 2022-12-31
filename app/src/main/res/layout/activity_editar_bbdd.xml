@@ -135,17 +135,18 @@
             android:text="Producto" />
 
         <RadioButton
-            android:id="@+id/rbTelefono"
+            android:id="@+id/rbServicio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="onClickEditarRegistros"
-            android:text="Telefono" />
+            android:text="Servicio" />
 
         <RadioButton
+            android:id="@+id/rbFactura"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="onClickEditarRegistros"
-            android:text="nose :D" />
+            android:text="Factura" />
 
 
     </RadioGroup>
