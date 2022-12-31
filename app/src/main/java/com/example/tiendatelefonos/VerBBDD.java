@@ -31,11 +31,26 @@ public class VerBBDD extends AppCompatActivity {
         String titulo = getIntent().getStringExtra("titulo");
         tvTitulo = findViewById(R.id.titulo);
         tvTitulo.setText(titulo);
-        verTabla();
+
+        switch (titulo) {
+            case "Información general":
+                informacionBBDD();
+                break;
+            case "Facturas":
+                informacionTabla(queryFactura, "Código", "Cliente", "Empleado", "Precio", "Fecha");
+                break;
+            case "Empleados":
+                informacionTabla(queryEmpleado, "Código", "Nombre", "Dirección", "Salario", "Teléfono");
+                break;
+            case "Productos":
+                informacionTabla(queryProducto, "Código", "Tipo prod.", "Precio", "Stock", "Ud. encarg.");
+        }
+
+
     }
 
 
-    private void verTabla() {
+    private void informacionBBDD() {
         View registro = LayoutInflater.from(this).inflate(R.layout.item_table_layout, null, false);
         encontrarColumnas(registro);
         UsuariosSQLiteHelper conn = new UsuariosSQLiteHelper(this, "DBContactos", null, 1);
@@ -60,6 +75,16 @@ public class VerBBDD extends AppCompatActivity {
         escribirIndices(registro, "Código", "Cliente", "Empleado", "Precio", "Fecha", "Factura");
         dibujarTabla(bbdd, queryFactura);
 
+    }
+
+    private void informacionTabla(String query, String i1, String i2, String i3, String i4, String i5) {
+        View registro = LayoutInflater.from(this).inflate(R.layout.item_table_layout, null, false);
+        encontrarColumnas(registro);
+        UsuariosSQLiteHelper conn = new UsuariosSQLiteHelper(this, "DBContactos", null, 1);
+        SQLiteDatabase bbdd = conn.getWritableDatabase();
+
+        escribirIndices(registro, i1, i2, i3, i4, i5, "");
+        dibujarTabla(bbdd, query);
     }
 
     private void dibujarTabla(SQLiteDatabase bbdd, String query) {

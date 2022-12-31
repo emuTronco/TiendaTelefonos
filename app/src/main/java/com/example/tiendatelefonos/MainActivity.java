@@ -50,13 +50,29 @@ public class MainActivity extends AppCompatActivity {
 
     public void onClickInfo(View v) {
         Intent i = new Intent(this, VerBBDD.class);
-        i.putExtra("titulo", "Información productos");
+        i.putExtra("titulo", "Información general");
         startActivity(i);
-        finish();
-        overridePendingTransition(0, 0);
     }
 
     public void onClickFacturas(View v) {
+        Intent i = new Intent(this, VerBBDD.class);
+        i.putExtra("titulo", "Facturas");
+        startActivity(i);
+    }
+
+    public void onClickEmpleados(View v) {
+        Intent i = new Intent(this, VerBBDD.class);
+        i.putExtra("titulo", "Empleados");
+        startActivity(i);
+    }
+
+    public void onClickProductos(View v) {
+        Intent i = new Intent(this, VerBBDD.class);
+        i.putExtra("titulo", "Productos");
+        startActivity(i);
+    }
+
+    public void onClickGestionar(View v) {
         Intent i = new Intent(this, EditarBBDD.class);
         i.putExtra("titulo", "Facturas");
         startActivity(i);

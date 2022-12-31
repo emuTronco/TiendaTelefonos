@@ -17,7 +17,7 @@
         android:gravity="center_horizontal"
         android:text="Tienda de móviles Crazy Cell"
         android:textAlignment="center"
-        android:textSize="38dp"
+        android:textSize="34dp"
         android:textStyle="bold"
         android:typeface="monospace" />
 
@@ -34,29 +34,39 @@
             android:layout_width="220dp"
             android:layout_height="80dp"
             android:onClick="onClickInfo"
-            android:text="Información productos (Ver?)"
+            android:text="Información general"
             app:backgroundTint="@color/teal_700" />
 
         <Button
-            android:id="@+id/botonEditar"
+            android:id="@+id/botonFacturas"
             android:layout_width="220dp"
             android:layout_height="80dp"
             android:onClick="onClickFacturas"
-            android:text="Facturas (editar?)"
+            android:text="Facturas"
             app:backgroundTint="@color/teal_700" />
 
         <Button
-            android:id="@+id/botonBorrar"
+            android:id="@+id/botonEmpleados"
             android:layout_width="220dp"
             android:layout_height="80dp"
+            android:onClick="onClickEmpleados"
             android:text="Consultar empleados"
             app:backgroundTint="@color/teal_700" />
 
         <Button
-            android:id="@+id/botondfg"
+            android:id="@+id/botonProd"
             android:layout_width="220dp"
             android:layout_height="80dp"
+            android:onClick="onClickProductos"
             android:text="Consultar productos"
+            app:backgroundTint="@color/teal_700" />
+
+        <Button
+            android:id="@+id/botonGestionar"
+            android:layout_width="220dp"
+            android:layout_height="80dp"
+            android:onClick="onClickGestionar"
+            android:text="Gestionar BB.DD."
             app:backgroundTint="@color/teal_700" />
 
     </LinearLayout>
