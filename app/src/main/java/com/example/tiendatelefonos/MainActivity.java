@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
                     db.execSQL("INSERT INTO Empleado VALUES ('Pepe', 'asdf', 'dfdsf', '789', 345)");
                     db.execSQL("INSERT INTO Producto VALUES ('Pepe', 'asdf', 'dfdsf', 'dfgdfg', '345')");
                     db.execSQL("INSERT INTO Servicio VALUES ('Pepe', 'asdf', '645', '456', '345')");
-                    db.execSQL("INSERT INTO Factura VALUES ('Pepe', 'asdf', 'dfdsf', '978', '345')");
+                    db.execSQL("INSERT INTO Factura VALUES ('Pepe', 'asdfd', 'dfdsf', '978', '345')");
                 }
                 db.execSQL("INSERT INTO Empleado VALUES ('Pepito', 'hfthfth', 'dfdsf', '789', 345)");
                 //Cerramos la base de datos
