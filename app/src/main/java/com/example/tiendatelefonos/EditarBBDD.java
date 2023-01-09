@@ -34,19 +34,19 @@ public class EditarBBDD extends AppCompatActivity {
 
         switch (tabla) {
             case "rbCliente":
-                cambiarTitulos("Código", "Nombre", "Dirección", "email", "Teléfono");
+                cambiarTitulos("cod_cliente", "nombre_cliente", "direccion", "email", "telefono");
                 break;
             case "rbEmpleado":
-                cambiarTitulos("Código", "Nombre", "Direccón", "Salario", "Teléfono");
+                cambiarTitulos("cod_empleado", "nombre_empleado", "direccion", "salario", "telefono");
                 break;
             case "rbProducto":
-                cambiarTitulos("Código", "Tipo", "Precio", "Stock", "Ud. Encarg.");
+                cambiarTitulos("cod_producto", "tipo_producto", "precio_producto", "stock", "udEncargadas");
                 break;
             case "rbServicio":
-                cambiarTitulos("Código", "Nombre", "Precio", "T. restante", "Cod. cliente");
+                cambiarTitulos("cod_servicio", "nombre_servicio", "precio_servicio", "tiempo_restante", "cod_cliente");
                 break;
             case "rbFactura":
-                cambiarTitulos("Código", "Cod. cliente", "Cod. empl.", "Precio", "Fecha");
+                cambiarTitulos("cod_factura", "cod_cliente", "cod_empleado", "precio_factura", "Fecha");
                 break;
         }
     }
@@ -108,6 +108,7 @@ public class EditarBBDD extends AppCompatActivity {
         nuevoRegistro.put(tv4.getText().toString(), datos4);
         nuevoRegistro.put(tv5.getText().toString(), datos5);
         boolean modificar_cargado = false;
+        String mensaje_error = "Error en la edición, comprueba los datos introducidos";
 
         for (String registro : array_modificar) {
             if (registro != null) {
@@ -117,16 +118,22 @@ public class EditarBBDD extends AppCompatActivity {
 
         switch (id_consulta) {
             case 0:
-                bbdd.insert(string_tabla, null, nuevoRegistro);
-//                bbdd.execSQL(consulta_insertar);
-                mensaje_toast = "Registro insertado con éxito";
-                terminarEdicion(mensaje_toast);
+                long resultado_insert = bbdd.insert(string_tabla, null, nuevoRegistro);
+                if (resultado_insert == -1) {
+                    errorEdicion(mensaje_error);
+                } else {
+                    mensaje_toast = "Registro insertado con éxito";
+                    terminarEdicion(mensaje_toast);
+                }
                 break;
             case 2:
-                bbdd.delete(string_tabla, tv1.getText().toString() + "= " + datos1 + " or " + tv2.getText().toString() + "= " + datos2 + " or " + tv3.getText().toString() + "= " + datos3 + " or " + tv4.getText().toString() + "= " + datos4 + " or " + tv5.getText().toString() + "= " + datos5 + "", null);
-//                bbdd.execSQL(consulta_borrar2);
-                mensaje_toast = "Registro eliminado con éxito";
-                terminarEdicion(mensaje_toast);
+                int resultado_delete = bbdd.delete(string_tabla, tv1.getText().toString() + "= '" + datos1 + "' or " + tv2.getText().toString() + "= '" + datos2 + "' or " + tv3.getText().toString() + "= '" + datos3 + "' or " + tv4.getText().toString() + "= '" + datos4 + "' or " + tv5.getText().toString() + "= '" + datos5 + "'", null);
+                if (resultado_delete == 0) {
+                    errorEdicion(mensaje_error);
+                } else {
+                    mensaje_toast = "Registro eliminado con éxito";
+                    terminarEdicion(mensaje_toast);
+                }
                 break;
             case 1:
                 if (!modificar_cargado) {
@@ -144,6 +151,11 @@ public class EditarBBDD extends AppCompatActivity {
         Intent i = new Intent(this, MainActivity.class);
         Toast.makeText(this, mensaje_toast, Toast.LENGTH_SHORT).show();
         startActivity(i);
+    }
+
+    private void errorEdicion(String mensaje_toast) {
+        Intent i = new Intent(this, MainActivity.class);
+        Toast.makeText(this, mensaje_toast, Toast.LENGTH_SHORT).show();
     }
 
     private String[] guardarModificado(String[] array_modificar, ContentValues nuevoRegistro, String string_tabla, SQLiteDatabase bbdd) {
