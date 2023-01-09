@@ -95,6 +95,9 @@ public class VerBBDD extends AppCompatActivity {
             encontrarColumnas(registro);
             tv1.setText(fila.getString(0));
             tv2.setText(fila.getString(1));
+            tv3.setText(fila.getString(2));
+            tv4.setText(fila.getString(3));
+            tv5.setText(fila.getString(4));
             tlBBDD.addView(registro);
         } while (fila.moveToNext());
         espacioTabla("");

@@ -1,75 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:fillViewport="true">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="10dp"
-        android:gravity="center_horizontal"
-        android:text="Tienda de móviles Crazy Cell"
-        android:textAlignment="center"
-        android:textSize="34dp"
-        android:textStyle="bold"
-        android:typeface="monospace" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:orientation="vertical">
+        <TextView
+            android:id="@+id/titulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:gravity="center_horizontal"
+            android:text="Tienda de móviles Crazy Cell"
+            android:textAlignment="center"
+            android:textSize="26dp"
+            android:textStyle="bold"
+            android:typeface="monospace" />
 
-        <Button
-            android:id="@+id/botonVer"
-            android:layout_width="220dp"
-            android:layout_height="80dp"
-            android:onClick="onClickInfo"
-            android:text="Información general"
-            app:backgroundTint="@color/teal_700" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/botonFacturas"
-            android:layout_width="220dp"
-            android:layout_height="80dp"
-            android:onClick="onClickFacturas"
-            android:text="Facturas"
-            app:backgroundTint="@color/teal_700" />
+            <Button
+                android:id="@+id/botonVer"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:onClick="onClickInfo"
+                android:text="Información general"
+                app:backgroundTint="@color/teal_700" />
 
-        <Button
-            android:id="@+id/botonEmpleados"
-            android:layout_width="220dp"
-            android:layout_height="80dp"
-            android:onClick="onClickEmpleados"
-            android:text="Consultar empleados"
-            app:backgroundTint="@color/teal_700" />
+            <Button
+                android:id="@+id/botonFacturas"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:onClick="onClickFacturas"
+                android:text="Facturas"
+                app:backgroundTint="@color/teal_700" />
 
-        <Button
-            android:id="@+id/botonProd"
-            android:layout_width="220dp"
-            android:layout_height="80dp"
-            android:onClick="onClickProductos"
-            android:text="Consultar productos"
-            app:backgroundTint="@color/teal_700" />
+            <Button
+                android:id="@+id/botonEmpleados"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:onClick="onClickEmpleados"
+                android:text="Consultar empleados"
+                app:backgroundTint="@color/teal_700" />
 
-        <Button
-            android:id="@+id/botonGestionar"
-            android:layout_width="220dp"
-            android:layout_height="80dp"
-            android:onClick="onClickGestionar"
-            android:text="Gestionar BB.DD."
-            app:backgroundTint="@color/teal_700" />
+            <Button
+                android:id="@+id/botonProd"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:onClick="onClickProductos"
+                android:text="Consultar productos"
+                app:backgroundTint="@color/teal_700" />
 
-    </LinearLayout>
+            <Button
+                android:id="@+id/botonGestionar"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:onClick="onClickGestionar"
+                android:text="Gestionar BB.DD."
+                app:backgroundTint="@color/teal_700" />
 
+        </LinearLayout>
 
-</RelativeLayout>
+    </RelativeLayout>
+
+</ScrollView>

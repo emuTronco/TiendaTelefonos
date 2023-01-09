@@ -7,7 +7,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -35,13 +34,19 @@ public class EditarBBDD extends AppCompatActivity {
 
         switch (tabla) {
             case "rbCliente":
-                cambiarTitulos("RFC", "Nombre", "Dirección", "Telefono", "email");
+                cambiarTitulos("Código", "Nombre", "Dirección", "email", "Teléfono");
                 break;
             case "rbEmpleado":
-                cambiarTitulos("Nombre", "Direccion", "id_empleado", "email", "Telefono");
+                cambiarTitulos("Código", "Nombre", "Direccón", "Salario", "Teléfono");
                 break;
             case "rbProducto":
-                cambiarTitulos("Código", "Tipo", "Precio", "PH", "PH");
+                cambiarTitulos("Código", "Tipo", "Precio", "Stock", "Ud. Encarg.");
+                break;
+            case "rbServicio":
+                cambiarTitulos("Código", "Nombre", "Precio", "T. restante", "Cod. cliente");
+                break;
+            case "rbFactura":
+                cambiarTitulos("Código", "Cod. cliente", "Cod. empl.", "Precio", "Fecha");
                 break;
         }
     }

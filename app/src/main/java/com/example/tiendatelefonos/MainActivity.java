@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -29,19 +28,37 @@ public class MainActivity extends AppCompatActivity {
                 //Insertamos 5 usuarios de ejemplo
                 for (int i = 1; i <= 5; i++) {
                     //Generamos los datos
-                    int telefono = 11111111 + i;
-                    String nombre = "Usuario" + i;
+                    int cod_cliente = (int) (Math.random() * 9999 + 1000);
+                    int cod_empleado = (int) (Math.random() * 9999 + 1000);
+                    int cod_producto = (int) (Math.random() * 9999 + 1000);
+                    int cod_servicio = (int) (Math.random() * 9999 + 1000);
+                    int cod_factura = (int) (Math.random() * 9999 + 1000);
+                    int telefono = (int) (Math.random() * 99999999 + 10000000);
+                    String nombre_cliente = "Cliente" + i;
+                    String direccion = "Direccion" + i;
+                    String email = "email" + i;
+                    String nombre_empleado = "Empleado" + i;
+                    int salario = (int) (Math.random() * 9999 + 1000);
+                    String tipo_producto = "Telefono" + i;
+                    int precio_producto = (int) (Math.random() * 999 + 100);
+                    int stock_producto = (int) (Math.random() * 100 + 1);
+                    int encargo_producto = (int) (Math.random() * 100 + 1);
+                    String nombre_servicio = "Servicio" + i;
+                    int precio_servicio = (int) (Math.random() * 99 + 10);
+                    int tiempo_restante = (int) (Math.random() * 99 + 1);
+                    int precio_factura = (int) (Math.random() * 9999 + 1);
+                    String fecha = "10-01-2023";
+
                     //Insertamos los datos en la tabla Usuarios
 //                    db.execSQL("INSERT INTO Contactos (nombre, telefono) VALUES ('" + nombre + "', " + telefono + " )");
-                    db.execSQL("INSERT INTO Cliente VALUES ('Pepe', 'asdf', 'dfdsf', 'dfgdfg', 345)");
-                    db.execSQL("INSERT INTO Empleado VALUES ('Pepe', 'asdf', 'dfdsf', '789', 345)");
-                    db.execSQL("INSERT INTO Producto VALUES ('Pepe', 'asdf', 'dfdsf', 'dfgdfg', '345')");
-                    db.execSQL("INSERT INTO Servicio VALUES ('Pepe', 'asdf', '645', '456', '345')");
-                    db.execSQL("INSERT INTO Factura VALUES ('Pepe', 'asdfd', 'dfdsf', '978', '345')");
+                    db.execSQL("INSERT INTO Cliente VALUES (" + cod_cliente + ", '" + nombre_cliente + "', '" + direccion + "', '" + email + "', " + telefono + ")");
+                    db.execSQL("INSERT INTO Empleado VALUES (" + cod_empleado + ", '" + nombre_empleado + "', '" + direccion + "', " + salario + ", " + telefono + ")");
+                    db.execSQL("INSERT INTO Producto VALUES (" + cod_producto + ", '" + tipo_producto + "', " + precio_producto + ", " + stock_producto + ", " + encargo_producto + ")");
+                    db.execSQL("INSERT INTO Servicio VALUES (" + cod_servicio + ", '" + nombre_servicio + "', " + precio_servicio + ", " + tiempo_restante + ", " + cod_cliente + ")");
+                    db.execSQL("INSERT INTO Factura VALUES (" + cod_factura + ", " + cod_cliente + ", " + cod_empleado + ", " + precio_factura + ", '" + fecha + "')");
                 }
-                db.execSQL("INSERT INTO Empleado VALUES ('Pepito', 'hfthfth', 'dfdsf', '789', 345)");
                 //Cerramos la base de datos
-            db.close();
+                db.close();
             }
 
         }
