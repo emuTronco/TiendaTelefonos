@@ -114,7 +114,7 @@ public class EditarBBDD extends AppCompatActivity {
                 modificar_cargado = true;
             }
         }
-        
+
         switch (id_consulta) {
             case 0:
                 bbdd.insert(string_tabla, null, nuevoRegistro);
@@ -132,7 +132,7 @@ public class EditarBBDD extends AppCompatActivity {
                 if (!modificar_cargado) {
                     array_modificar = guardarModificado(array_modificar, nuevoRegistro, string_tabla, bbdd);
                 } else {
-                    bbdd.update(string_tabla, nuevoRegistro,tv1.getText().toString() + "= " + array_modificar[0] + " or " + tv2.getText().toString() + "= " + array_modificar[1] + " or " + tv3.getText().toString() + "= " + array_modificar[2] + " or " + tv4.getText().toString() + "= " + array_modificar[3] + " or " + tv5.getText().toString() + "= " + array_modificar[4] + "", null);
+                    bbdd.update(string_tabla, nuevoRegistro, tv1.getText().toString() + "= " + array_modificar[0] + " or " + tv2.getText().toString() + "= " + array_modificar[1] + " or " + tv3.getText().toString() + "= " + array_modificar[2] + " or " + tv4.getText().toString() + "= " + array_modificar[3] + " or " + tv5.getText().toString() + "= " + array_modificar[4] + "", null);
                     modificar_cargado = false;
                     mensaje_toast = "Registro modificado con éxito";
                     terminarEdicion(mensaje_toast);

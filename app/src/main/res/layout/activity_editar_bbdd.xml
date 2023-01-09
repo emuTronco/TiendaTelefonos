@@ -4,260 +4,259 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fillViewport="true"
     android:orientation="vertical"
     tools:context=".EditarBBDD"
     tools:layout_editor_absoluteX="0dp"
-    tools:layout_editor_absoluteY="-13dp"
-    android:fillViewport="true">
+    tools:layout_editor_absoluteY="-13dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
 
+        <EditText
+            android:id="@+id/editText"
+            android:layout_width="150dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="43dp"
+            android:layout_marginBottom="58dp"
+            app:layout_constraintBottom_toBottomOf="@+id/editText2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitulo" />
 
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="150dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="43dp"
-        android:layout_marginBottom="58dp"
-        app:layout_constraintBottom_toBottomOf="@+id/editText2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvTitulo" />
+        <EditText
+            android:id="@+id/editText4"
+            android:layout_width="150dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="13dp"
+            app:layout_constraintBottom_toTopOf="@+id/editText5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
-    <EditText
-        android:id="@+id/editText4"
-        android:layout_width="150dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="13dp"
-        app:layout_constraintBottom_toTopOf="@+id/editText5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        <EditText
+            android:id="@+id/editText3"
+            android:layout_width="150dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="56dp"
+            android:layout_marginBottom="56dp"
+            app:layout_constraintBottom_toBottomOf="@+id/editText4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/editText2" />
 
-    <EditText
-        android:id="@+id/editText3"
-        android:layout_width="150dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="56dp"
-        android:layout_marginBottom="56dp"
-        app:layout_constraintBottom_toBottomOf="@+id/editText4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/editText2" />
+        <EditText
+            android:id="@+id/editText2"
+            android:layout_width="150dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="101dp"
+            android:layout_marginBottom="101dp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvEditar4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitulo" />
 
-    <EditText
-        android:id="@+id/editText2"
-        android:layout_width="150dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="101dp"
-        android:layout_marginBottom="101dp"
-        app:layout_constraintBottom_toBottomOf="@+id/tvEditar4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvTitulo" />
+        <TextView
+            android:id="@+id/tvEditar1"
+            android:layout_width="80dp"
+            android:layout_height="25dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:gravity="center"
+            android:textSize="12dp"
+            app:layout_constraintBottom_toBottomOf="@+id/editText"
+            app:layout_constraintEnd_toStartOf="@+id/editText"
+            app:layout_constraintTop_toTopOf="@+id/editText" />
 
-    <TextView
-        android:id="@+id/tvEditar1"
-        android:layout_width="80dp"
-        android:layout_height="25dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:gravity="center"
-        android:textSize="12dp"
-        app:layout_constraintBottom_toBottomOf="@+id/editText"
-        app:layout_constraintEnd_toStartOf="@+id/editText"
-        app:layout_constraintTop_toTopOf="@+id/editText" />
+        <TextView
+            android:id="@+id/tvEditar5"
+            android:layout_width="80dp"
+            android:layout_height="25dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:gravity="center"
+            android:textSize="12dp"
+            app:layout_constraintBottom_toBottomOf="@+id/editText5"
+            app:layout_constraintEnd_toStartOf="@+id/editText"
+            app:layout_constraintTop_toTopOf="@+id/editText5" />
 
-    <TextView
-        android:id="@+id/tvEditar5"
-        android:layout_width="80dp"
-        android:layout_height="25dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:gravity="center"
-        android:textSize="12dp"
-        app:layout_constraintBottom_toBottomOf="@+id/editText5"
-        app:layout_constraintEnd_toStartOf="@+id/editText"
-        app:layout_constraintTop_toTopOf="@+id/editText5" />
+        <TextView
+            android:id="@+id/tvEditar4"
+            android:layout_width="80dp"
+            android:layout_height="25dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:gravity="center"
+            android:textSize="12dp"
+            app:layout_constraintBottom_toBottomOf="@+id/editText4"
+            app:layout_constraintEnd_toStartOf="@+id/editText"
+            app:layout_constraintTop_toTopOf="@+id/editText4" />
 
-    <TextView
-        android:id="@+id/tvEditar4"
-        android:layout_width="80dp"
-        android:layout_height="25dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:gravity="center"
-        android:textSize="12dp"
-        app:layout_constraintBottom_toBottomOf="@+id/editText4"
-        app:layout_constraintEnd_toStartOf="@+id/editText"
-        app:layout_constraintTop_toTopOf="@+id/editText4" />
+        <TextView
+            android:id="@+id/tvEditar3"
+            android:layout_width="80dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="56dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="56dp"
+            android:gravity="center"
+            android:textSize="12dp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvEditar4"
+            app:layout_constraintEnd_toStartOf="@+id/editText"
+            app:layout_constraintTop_toTopOf="@+id/tvEditar2" />
 
-    <TextView
-        android:id="@+id/tvEditar3"
-        android:layout_width="80dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="56dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="56dp"
-        android:gravity="center"
-        android:textSize="12dp"
-        app:layout_constraintBottom_toBottomOf="@+id/tvEditar4"
-        app:layout_constraintEnd_toStartOf="@+id/editText"
-        app:layout_constraintTop_toTopOf="@+id/tvEditar2" />
-
-    <RadioGroup
-        android:id="@+id/rgTablasBBDD"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="450dp"
-        android:layout_marginBottom="120dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <RadioButton
-            android:id="@+id/rbCliente"
+        <RadioGroup
+            android:id="@+id/rgTablasBBDD"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="onClickEditarRegistros"
-            android:text="Cliente" />
+            android:layout_marginStart="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="450dp"
+            android:layout_marginBottom="120dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-        <RadioButton
-            android:id="@+id/rbEmpleado"
+            <RadioButton
+                android:id="@+id/rbCliente"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onClickEditarRegistros"
+                android:text="Cliente" />
+
+            <RadioButton
+                android:id="@+id/rbEmpleado"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onClickEditarRegistros"
+                android:text="Empleado" />
+
+            <RadioButton
+                android:id="@+id/rbProducto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onClickEditarRegistros"
+                android:text="Producto" />
+
+            <RadioButton
+                android:id="@+id/rbServicio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onClickEditarRegistros"
+                android:text="Servicio" />
+
+            <RadioButton
+                android:id="@+id/rbFactura"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onClickEditarRegistros"
+                android:text="Factura" />
+
+
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/tvEditar2"
+            android:layout_width="80dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="67dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="67dp"
+            android:gravity="center"
+            android:textSize="12dp"
+            app:layout_constraintBottom_toBottomOf="@+id/editText3"
+            app:layout_constraintEnd_toStartOf="@+id/editText"
+            app:layout_constraintTop_toTopOf="@+id/editText" />
+
+        <EditText
+            android:id="@+id/editText5"
+            android:layout_width="150dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="314dp"
+            android:layout_marginBottom="315dp"
+            app:layout_constraintBottom_toBottomOf="@+id/rgTablasBBDD"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvTitulo" />
+
+        <Button
+            android:id="@+id/button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="onClickEditarRegistros"
-            android:text="Empleado" />
+            android:layout_marginBottom="16dp"
+            android:onClick="onClickAceptar"
+            android:text="aceptar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
-        <RadioButton
-            android:id="@+id/rbProducto"
+        <TextView
+            android:id="@+id/tvTitulo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="onClickEditarRegistros"
-            android:text="Producto" />
+            android:layout_marginTop="16dp"
+            android:text="Editar BB.DD."
+            android:textSize="32dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <RadioButton
-            android:id="@+id/rbServicio"
+
+        <RadioGroup
+            android:id="@+id/rgOperacionesBBDD"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="onClickEditarRegistros"
-            android:text="Servicio" />
+            android:layout_marginTop="131dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="150dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editText5">
 
-        <RadioButton
-            android:id="@+id/rbFactura"
+            <RadioButton
+                android:id="@+id/rbInsertar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onClickModificar"
+                android:text="Insertar"
+                tools:layout_editor_absoluteX="273dp"
+                tools:layout_editor_absoluteY="534dp" />
+
+            <RadioButton
+                android:id="@+id/rbModificar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onClickModificar"
+                android:text="Modificar"
+                tools:layout_editor_absoluteX="273dp"
+                tools:layout_editor_absoluteY="486dp" />
+
+            <RadioButton
+                android:id="@+id/rbBorrar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onClickModificar"
+                android:text="Borrar" />
+
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/tvModificar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="onClickEditarRegistros"
-            android:text="Factura" />
-
-
-    </RadioGroup>
-
-    <TextView
-        android:id="@+id/tvEditar2"
-        android:layout_width="80dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="67dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="67dp"
-        android:gravity="center"
-        android:textSize="12dp"
-        app:layout_constraintBottom_toBottomOf="@+id/editText3"
-        app:layout_constraintEnd_toStartOf="@+id/editText"
-        app:layout_constraintTop_toTopOf="@+id/editText" />
-
-    <EditText
-        android:id="@+id/editText5"
-        android:layout_width="150dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="314dp"
-        android:layout_marginBottom="315dp"
-        app:layout_constraintBottom_toBottomOf="@+id/rgTablasBBDD"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tvTitulo" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:onClick="onClickAceptar"
-        android:text="aceptar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/tvTitulo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Editar BB.DD."
-        android:textSize="32dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-    <RadioGroup
-        android:id="@+id/rgOperacionesBBDD"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="131dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginBottom="150dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText5">
-
-        <RadioButton
-            android:id="@+id/rbInsertar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="onClickModificar"
-            android:text="Insertar"
-            tools:layout_editor_absoluteX="273dp"
-            tools:layout_editor_absoluteY="534dp" />
-
-        <RadioButton
-            android:id="@+id/rbModificar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="onClickModificar"
-            android:text="Modificar"
-            tools:layout_editor_absoluteX="273dp"
-            tools:layout_editor_absoluteY="486dp" />
-
-        <RadioButton
-            android:id="@+id/rbBorrar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="onClickModificar"
-            android:text="Borrar" />
-
-    </RadioGroup>
-
-    <TextView
-        android:id="@+id/tvModificar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="11dp"
-        android:layout_marginBottom="282dp"
-        android:text="Registro a modificar"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText5" />
+            android:layout_marginTop="11dp"
+            android:layout_marginBottom="282dp"
+            android:text="Registro a modificar"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@+id/button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editText5" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
